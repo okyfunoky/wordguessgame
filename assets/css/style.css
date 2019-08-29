@@ -1,11 +1,14 @@
 .game {
+    display: block;
     text-align: center;
     line-height: 150%;
-    width: 70%;
     height: 50%;
     font-family: 'Marvel', sans-serif;
+    color: white;
+    background-color: red;
 }
 
 #wordToGuess{
     font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
 }

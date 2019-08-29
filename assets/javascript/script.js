@@ -47,7 +47,7 @@ document.onkeyup = function(event){
         guessesRemaining.textContent = guesses;
     }
     var guessedLetters = document.getElementById("guessedLetters");
-    guessedLetters.textContent += keyPressed;
+    guessedLetters.textContent += " " + keyPressed;
 
     updateWordToGuess(placeholderArray);
     var result = checkForWinLoss();
@@ -121,6 +121,7 @@ function updateHeroImage(result, character){
         image.setAttribute("src", "./assets/images/" + pictureUrl);
         image.setAttribute("alt", "a picture of " + character);
         image.setAttribute("id","heroImage");
+        image.setAttribute("style","display: block; margin: auto");
         victoryScreenElement.appendChild(image);
     }
 
