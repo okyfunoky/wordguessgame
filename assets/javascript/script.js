@@ -1,4 +1,9 @@
-var character = "Captain America"
+var characters = ["Captain America", "Black Panther","Iron Man","Thor","Black Widow","The Hulk","Hawkeye","Doctor Strange","The Wasp", "Ant Man","Spider-Man","Star-Lord",""]
+
+
+
+
+var character = characters[10];
 var guesses = 5;
 var placeholderArray = createPlaceholderArray(character);
 updateWordToGuess(placeholderArray);
@@ -43,11 +48,13 @@ function updateWordToGuess(update){
 function createPlaceholderArray(character){
     var placeholderArray = [];
     for (let i = 0; i < character.length; i++) {
-        if(character[i]!== " ")
+        if(character[i] === " " ){
+            placeholderArray.push(" ");
+        }else if(character[i] === "-"){
+            placeholderArray.push("-")
+        }else
         {
             placeholderArray.push("_");
-        }else{
-            placeholderArray.push(" ");
         }
     }
     return placeholderArray;
