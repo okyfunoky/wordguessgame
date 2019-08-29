@@ -3,4 +3,9 @@
     line-height: 150%;
     width: 70%;
     height: 50%;
+    font-family: 'Marvel', sans-serif;
+}
+
+#wordToGuess{
+    font-family: 'Times New Roman', Times, serif;
 }
