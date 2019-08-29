@@ -92,13 +92,22 @@ function checkForWinLoss(){
 
 function updateHeroImage(result, character){
     if(result === "win"){
-        console.log(character);
         character = character.replace("-","");
         character = character.replace(" ","");
-        console.log(character)
 
+        victoryCount++;
+        var victoryCountElement = document.getElementById("victoryCount");
+        victoryCountElement.textContent = victoryCount;
+        gameOver = true;
 
+    }else if(result === "lose"){
+        //thanos
+        character = "thanos";
+        gameOver = true;
+    }
 
+    //update image with character
+    if(result === "win" || result === "lose"){
         var existingImage = document.getElementById("heroImage");
         if(existingImage !== null){
             existingImage.parentElement.removeChild(existingImage); 
@@ -113,21 +122,6 @@ function updateHeroImage(result, character){
         image.setAttribute("alt", "a picture of " + character);
         image.setAttribute("id","heroImage");
         victoryScreenElement.appendChild(image);
-
-        //var background = document.getElementById("heroImage");
-        //background.style = "background-image: url('./assets/images/" + pictureUrl + "'); background-repeat:no-repeat;";
-        victoryCount++;
-        var victoryCountElement = document.getElementById("victoryCount");
-        victoryCountElement.textContent = victoryCount;
-        gameOver = true;
-
-
-    }else if(result === "lose"){
-        //thanos
-        var background = document.getElementById("heroImage");
-        background.style = "background-image: url('./assets/images/thanos.jpg'); background-repeat:no-repeat;";
-        gameOver = true;
     }
-
 
 }
