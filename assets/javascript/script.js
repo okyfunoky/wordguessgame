@@ -1,15 +1,36 @@
-console.log("start");
-
 var characters = ["Captain America", "Black Panther","Iron Man","Thor","Black Widow","Hawkeye","Doctor Strange","The Wasp","Spider-Man","Star-Lord","Captain Marvel", "Valkyrie"]
 
-var character = characters[11];
+var randomNumber = Math.floor(Math.random() * characters.length);
+console.log("random: " + randomNumber);
+
+var character = characters[randomNumber];
 var guesses = 5;
+var victoryCount = 0;
 var placeholderArray = createPlaceholderArray(character);
 updateWordToGuess(placeholderArray);
 var guessesRemaining = document.getElementById("guessesRemaining");
 guessesRemaining.textContent = guesses;
+var gameOver = false;
 
 document.onkeyup = function(event){
+
+
+    if(gameOver){
+        randomNumber = Math.floor(Math.random() * characters.length);
+        console.log("random: " + randomNumber);
+
+        character = characters[randomNumber];
+
+        placeholderArray = createPlaceholderArray(character);
+        updateWordToGuess(placeholderArray);
+        guessesRemaining = document.getElementById("guessesRemaining");
+        guessesRemaining.textContent = guesses;
+
+        guessedLetters = document.getElementById("guessedLetters");
+        guessedLetters.textContent = "";
+        guesses = 5;
+        gameOver = false;
+    }
 
     keyPressed = event.key;
     character = character.toLowerCase();
@@ -81,11 +102,17 @@ function updateHeroImage(result, character){
         console.log("url " + pictureUrl);
         var background = document.getElementById("heroImage");
         background.style = "background-image: url('./assets/images/" + pictureUrl + "'); background-repeat:no-repeat;";
+        victoryCount++;
+        var victoryCountElement = document.getElementById("victoryCount");
+        victoryCountElement.textContent = victoryCount;
+        gameOver = true;
+
 
     }else if(result === "lose"){
         //thanos
         var background = document.getElementById("heroImage");
         background.style = "background-image: url('./assets/images/thanos.jpg'); background-repeat:no-repeat;";
+        gameOver = true;
     }
 
 
