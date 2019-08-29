@@ -6,6 +6,7 @@
     font-family: 'Marvel', sans-serif;
     color: white;
     background-color: red;
+    margin: auto;
 }
 
 #wordToGuess{
