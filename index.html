@@ -10,29 +10,33 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body id="heroImage">
-    <div>
-        <h1>Guess the Marvel Character</h1>
+<body>
+    <div class="game">
+        <div>
+            <h1>Guess the Marvel Character</h1>
+        </div>
+        <div>
+            <div id="instructions">
+                <h3>
+                    Press a letter to make a guess.
+                </h3>
+            </div>
+            <div>
+                <h3>Guessed Letters: <span id="guessedLetters"></span>
+                </h3>
+                <h3>
+                    Guesses Remaining: <span id="guessesRemaining"></span>
+                </h3>
+                <h3>
+                    Character: <span id="wordToGuess"></span>
+                </h3>
+            </div>
+            <div>
+                <h3>Wins: <span id="victoryCount"></span></h3>
+            </div>
+        </div>
     </div>
-    <div id="game">
-        <div id="instructions">
-            <h3>
-                Press a letter to make a guess.
-            </h3>
-        </div>
-        <div>
-            <h3>Guessed Letters: <span id="guessedLetters"></span>
-            </h3>
-            <h3>
-                Guesses Remaining: <span id="guessesRemaining"></span>
-            </h3>
-            <h3>
-                Character: <span id="wordToGuess"></span>
-            </h3>
-        </div>
-        <div>
-            <h3>Wins: <span id="victoryCount"></span></h3>
-        </div>
+    <div id="victoryScreen">
     </div>
     <script src="./assets/javascript/script.js"></script>
 

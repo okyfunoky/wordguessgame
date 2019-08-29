@@ -14,7 +14,6 @@ var gameOver = false;
 
 document.onkeyup = function(event){
 
-
     if(gameOver){
         randomNumber = Math.floor(Math.random() * characters.length);
         console.log("random: " + randomNumber);
@@ -97,11 +96,26 @@ function updateHeroImage(result, character){
         character = character.replace("-","");
         character = character.replace(" ","");
         console.log(character)
+
+
+
+        var existingImage = document.getElementById("heroImage");
+        if(existingImage !== null){
+            existingImage.parentElement.removeChild(existingImage); 
+        }
         var pictureUrl = character + ".jpg"
         
         console.log("url " + pictureUrl);
-        var background = document.getElementById("heroImage");
-        background.style = "background-image: url('./assets/images/" + pictureUrl + "'); background-repeat:no-repeat;";
+        var image = document.createElement("img");
+        
+        var victoryScreenElement = document.getElementById("victoryScreen");
+        image.setAttribute("src", "./assets/images/" + pictureUrl);
+        image.setAttribute("alt", "a picture of " + character);
+        image.setAttribute("id","heroImage");
+        victoryScreenElement.appendChild(image);
+
+        //var background = document.getElementById("heroImage");
+        //background.style = "background-image: url('./assets/images/" + pictureUrl + "'); background-repeat:no-repeat;";
         victoryCount++;
         var victoryCountElement = document.getElementById("victoryCount");
         victoryCountElement.textContent = victoryCount;
