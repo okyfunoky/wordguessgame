@@ -1,9 +1,5 @@
-var characters = ["Captain America", "Black Panther","Iron Man","Thor","Black Widow","The Hulk","Hawkeye","Doctor Strange","The Wasp", "Ant Man","Spider-Man","Star-Lord",""]
-
-
-
-
-var character = characters[10];
+var characters = ["Captain America", "Black Panther","Iron Man","Thor","Black Widow","Hawkeye","Doctor Strange","The Wasp","Spider-Man","Star-Lord","Captain Marvel", "Valkyrie"]
+var character = characters[11];
 var guesses = 5;
 var placeholderArray = createPlaceholderArray(character);
 updateWordToGuess(placeholderArray);
@@ -11,6 +7,8 @@ var guessesRemaining = document.getElementById("guessesRemaining");
 guessesRemaining.textContent = guesses;
 
 document.onkeyup = function(event){
+
+
     keyPressed = event.key;
     character = character.toLowerCase();
 
@@ -31,7 +29,7 @@ document.onkeyup = function(event){
 
     updateWordToGuess(placeholderArray);
     var result = checkForWinLoss();
-    console.log(result);
+    updateHeroImage(result);
 }
 
 function updateWordToGuess(update){
@@ -66,6 +64,18 @@ function checkForWinLoss(){
     }
 
     if(placeholderArray.indexOf("_") === -1){
-        return "Win";
+        return "win";
     }
+}
+
+function updateHeroImage(result, character){
+    if(result === "win"){
+        //find picture in collection
+    }else if(result === "lose"){
+        //thanos
+        var background = document.getElementById("heroImage");
+        background.style = "background-image: url('./assets/images/thanos.jpg'); background-repeat:no-repeat;";
+    }
+
+
 }
